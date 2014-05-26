@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Group:</strong>
+  <%= @message_config.group %>
+</p>
+
+<p>
+  <strong>Biztype:</strong>
+  <%= @message_config.bizType %>
+</p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @message_config.name %>
+</p>
+
+<p>
+  <strong>Desc:</strong>
+  <%= @message_config.desc %>
+</p>
+
+<%= link_to 'Edit', edit_message_config_path(@message_config) %> |
+<%= link_to 'Back', message_configs_path %>
