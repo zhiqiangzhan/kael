@@ -1,0 +1,27 @@
+<table class="table table-bordered table-hover">
+    <thead>
+    <tr>
+        <th>ID</th>
+        <th>类型</th>
+        <th>语言</th>
+        <th>Script</th>
+        <th colspan="3"></th>
+    </tr>
+    </thead>
+
+    <tbody>
+    <% @template_strategies.each do |template_strategy| %>
+    <tr>
+        <td><%= template_strategy.id %></td>
+        <td><%= template_strategy.strategy_type %></td>
+        <td><%= template_strategy.language %></td>
+        <td><%= template_strategy.script %></td>
+        <td>
+            <%= link_to '查看', message_config_template_strategy_path(@message_config, template_strategy), class: 'btn btn-default btn-xs' %>
+            <%= link_to '编辑', edit_message_config_template_strategy_path(@message_config, template_strategy), class: 'btn btn-default btn-xs' %>
+            <%= link_to '删除', message_config_template_strategy_path(@message_config, template_strategy), method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger btn-xs' %>
+        </td>
+    </tr>
+    <% end %>
+    </tbody>
+</table>

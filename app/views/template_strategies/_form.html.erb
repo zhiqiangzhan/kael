@@ -1,4 +1,4 @@
-<%= form_for(@template_strategy) do |f| %>
+<%= form_for([@message_config, @template_strategy], html:{class: 'form-horizontal'}) do |f| %>
   <% if @template_strategy.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@template_strategy.errors.count, "error") %> prohibited this template_strategy from being saved:</h2>
@@ -11,19 +11,25 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :message_config_id %><br>
-    <%= f.text_field :message_config_id %>
+  <div class="field form-group">
+    <%= f.label :strategy_type, class: 'control-label col-sm-3' %>
+    <div class="col-sm-9">
+    <%= f.select :strategy_type, [['静态', 'static'], ['动态', 'dynamic']] ,class: 'form-control'%>
+    </div>
   </div>
-  <div class="field">
-    <%= f.label :type %><br>
-    <%= f.text_field :type %>
+  <div class="field form-group">
+    <%= f.label :language, class: 'control-label col-sm-3' %>
+    <div class="col-sm-9">
+    <%= f.select :language, ['json', 'groovy', 'config'], class: 'form-control' %>
+    </div>
   </div>
-  <div class="field">
-    <%= f.label :script %><br>
-    <%= f.text_field :script %>
+  <div class="field form-group">
+    <%= f.label :script, class: 'control-label col-sm-3' %>
+    <div class="col-sm-9">
+    <%= f.text_area :script, class: 'form-control', rows: 8%>
+    </div>
   </div>
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit '提交', class: 'btn btn-primary pull-right' %>
   </div>
 <% end %>

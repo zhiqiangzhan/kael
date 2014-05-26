@@ -1,9 +1,9 @@
 Rails.application.routes.draw do
-  resources :template_strategies
 
-  resources :message_templates
-
-  resources :message_configs
+  resources :message_configs do
+    resources :message_templates
+    resources :template_strategies
+  end
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

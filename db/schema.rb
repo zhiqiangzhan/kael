@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140526053330) do
+ActiveRecord::Schema.define(version: 20140526060006) do
 
   create_table "message_configs", force: true do |t|
     t.string   "group"
@@ -27,8 +27,20 @@ ActiveRecord::Schema.define(version: 20140526053330) do
     t.string   "template"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "name"
   end
 
   add_index "message_templates", ["message_config_id"], name: "index_message_templates_on_message_config_id", using: :btree
+
+  create_table "template_strategies", force: true do |t|
+    t.integer  "message_config_id"
+    t.string   "strategy_type"
+    t.string   "language"
+    t.string   "script"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "template_strategies", ["message_config_id"], name: "index_template_strategies_on_message_config_id", using: :btree
 
 end

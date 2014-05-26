@@ -1,10 +1,11 @@
 class MessageTemplatesController < ApplicationController
+  before_action :find_message_config
   before_action :set_message_template, only: [:show, :edit, :update, :destroy]
 
   # GET /message_templates
   # GET /message_templates.json
   def index
-    @message_templates = MessageTemplate.all
+    @message_templates = @message_config.message_templates
   end
 
   # GET /message_templates/1
@@ -14,7 +15,7 @@ class MessageTemplatesController < ApplicationController
 
   # GET /message_templates/new
   def new
-    @message_template = MessageTemplate.new
+    @message_template = @message_config.message_templates.new
   end
 
   # GET /message_templates/1/edit
@@ -24,12 +25,12 @@ class MessageTemplatesController < ApplicationController
   # POST /message_templates
   # POST /message_templates.json
   def create
-    @message_template = MessageTemplate.new(message_template_params)
+    @message_template = @message_config.message_templates.new(message_template_params)
 
     respond_to do |format|
       if @message_template.save
-        format.html { redirect_to @message_template, notice: 'Message template was successfully created.' }
-        format.json { render :show, status: :created, location: @message_template }
+        format.html { redirect_to message_config_message_template_url(@message_config, @message_template), notice: 'Message template was successfully created.' }
+        format.json { render :show, status: :created, location: message_config_message_template_url(@message_config, @message_template) }
       else
         format.html { render :new }
         format.json { render json: @message_template.errors, status: :unprocessable_entity }
@@ -42,8 +43,8 @@ class MessageTemplatesController < ApplicationController
   def update
     respond_to do |format|
       if @message_template.update(message_template_params)
-        format.html { redirect_to @message_template, notice: 'Message template was successfully updated.' }
-        format.json { render :show, status: :ok, location: @message_template }
+        format.html { redirect_to message_config_message_template_url(@message_config, @message_template), notice: 'Message template was successfully updated.' }
+        format.json { render :show, status: :ok, location: message_config_message_template_url(@message_config, @message_template) }
       else
         format.html { render :edit }
         format.json { render json: @message_template.errors, status: :unprocessable_entity }
@@ -56,7 +57,7 @@ class MessageTemplatesController < ApplicationController
   def destroy
     @message_template.destroy
     respond_to do |format|
-      format.html { redirect_to message_templates_url, notice: 'Message template was successfully destroyed.' }
+      format.html { redirect_to message_config_message_templates_url, notice: 'Message template was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
@@ -64,11 +65,15 @@ class MessageTemplatesController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_message_template
-      @message_template = MessageTemplate.find(params[:id])
+      @message_template = @message_config.message_templates.find(params[:id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def message_template_params
-      params.require(:message_template).permit(:message_config_id, :template)
+      params.require(:message_template).permit(:message_config_id, :name, :template)
+    end
+
+    def find_message_config()
+      @message_config = find_resource_by_nested_path
     end
 end

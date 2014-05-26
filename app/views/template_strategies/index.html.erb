@@ -1,29 +1,5 @@
-<h1>Listing template_strategies</h1>
-
-<table>
-  <thead>
-    <tr>
-      <th>Message config</th>
-      <th>Type</th>
-      <th>Script</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @template_strategies.each do |template_strategy| %>
-      <tr>
-        <td><%= template_strategy.message_config %></td>
-        <td><%= template_strategy.type %></td>
-        <td><%= template_strategy.script %></td>
-        <td><%= link_to 'Show', template_strategy %></td>
-        <td><%= link_to 'Edit', edit_template_strategy_path(template_strategy) %></td>
-        <td><%= link_to 'Destroy', template_strategy, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<br>
-
-<%= link_to 'New Template strategy', new_template_strategy_path %>
+<div class="row box">
+    <h2 class="title">模板策略</h2>
+    <%= render 'table' %>
+    <%= link_to '新建模板策略', new_message_config_template_strategy_path, class: 'btn btn-primary btn-sm' %>
+</div>

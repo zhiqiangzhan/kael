@@ -1,6 +1,8 @@
-<h1>Editing message_config</h1>
-
-<%= render 'form' %>
-
-<%= link_to 'Show', @message_config %> |
-<%= link_to 'Back', message_configs_path %>
+<div class="row">
+    <div class="box col-md-6">
+        <h2 class="title">编辑消息配置</h2>
+        <%= render 'form' %>
+    </div>
+</div>
+<%= link_to '查看', @message_config %> |
+<%= link_to '后退', message_configs_path %>

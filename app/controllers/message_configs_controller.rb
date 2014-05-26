@@ -10,6 +10,8 @@ class MessageConfigsController < ApplicationController
   # GET /message_configs/1
   # GET /message_configs/1.json
   def show
+    @template_strategies = @message_config.template_strategies
+    @message_templates = @message_config.message_templates
   end
 
   # GET /message_configs/new

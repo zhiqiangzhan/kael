@@ -1,0 +1,25 @@
+<table class="table table-bordered table-hover">
+    <thead>
+    <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Template</th>
+        <th></th>
+    </tr>
+    </thead>
+
+    <tbody>
+    <% @message_templates.each do |message_template| %>
+    <tr>
+        <td><%= message_template.id %></td>
+        <td><%= message_template.name %></td>
+        <td><%= message_template.template %></td>
+        <td>
+            <%= link_to '查看', message_config_message_template_path(@message_config, message_template), class: 'btn btn-default btn-xs' %>
+            <%= link_to '编辑', edit_message_config_message_template_path(@message_config, message_template), class: 'btn btn-default btn-xs' %>
+            <%= link_to '删除', message_config_message_template_path(@message_config, message_template), method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger btn-xs' %>
+        </td>
+    </tr>
+    <% end %>
+    </tbody>
+</table>
