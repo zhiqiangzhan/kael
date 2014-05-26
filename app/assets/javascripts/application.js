@@ -12,6 +12,19 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require turbolinks
+// require turbolinks
 //= require bootstrap
 //= require_tree .
+
+jQuery(document).ready(function ($) {
+    $(document)
+        .on('ajax:success', '[data-remote]', function (event, data, status, xhr) {
+            window.location.reload();
+        })
+        .on('ajax:complete', '[data-remote]', function (event, xhr, status) {
+            $(this).closest('.modal').modal('hide');
+        })
+        .on('hidden.bs.modal', '#globalModal', function (e) {
+            $(e.target).removeData('bs.modal');
+        });
+});

@@ -11,15 +11,24 @@ class MessageTemplatesController < ApplicationController
   # GET /message_templates/1
   # GET /message_templates/1.json
   def show
+    if request.xhr?
+      render '_show', layout: false;
+    end
   end
 
   # GET /message_templates/new
   def new
     @message_template = @message_config.message_templates.new
+    if request.xhr?
+      render 'partials/_template_form', layout: false;
+    end
   end
 
   # GET /message_templates/1/edit
   def edit
+    if request.xhr?
+      render 'partials/_template_form', layout: false;
+    end
   end
 
   # POST /message_templates

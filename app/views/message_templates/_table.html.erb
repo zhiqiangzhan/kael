@@ -15,9 +15,9 @@
         <td><%= message_template.name %></td>
         <td><%= message_template.template %></td>
         <td>
-            <%= link_to '查看', message_config_message_template_path(@message_config, message_template), class: 'btn btn-default btn-xs' %>
-            <%= link_to '编辑', edit_message_config_message_template_path(@message_config, message_template), class: 'btn btn-default btn-xs' %>
-            <%= link_to '删除', message_config_message_template_path(@message_config, message_template), method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger btn-xs' %>
+            <%= link_to '查看', message_config_message_template_path(@message_config, message_template), class: 'btn btn-default btn-xs', data: {toggle: 'modal', target: '#globalModal'}  %>
+            <%= link_to '编辑', edit_message_config_message_template_path(@message_config, message_template), class: 'btn btn-default btn-xs', data: {toggle: 'modal', target: '#globalModal'}  %>
+            <%= link_to '删除', message_config_message_template_path(@message_config, message_template), method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger btn-xs', data: {toggle: 'modal', target: '#globalModal'}  %>
         </td>
     </tr>
     <% end %>

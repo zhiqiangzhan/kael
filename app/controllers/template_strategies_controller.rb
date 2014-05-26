@@ -11,15 +11,24 @@ class TemplateStrategiesController < ApplicationController
   # GET /template_strategies/1
   # GET /template_strategies/1.json
   def show
+    if request.xhr?
+      render '_show', layout: false;
+    end
   end
 
   # GET /template_strategies/new
   def new
     @template_strategy = @message_config.template_strategies.new
+    if request.xhr?
+      render 'partials/_strategy_form', layout: false;
+    end
   end
 
   # GET /template_strategies/1/edit
   def edit
+    if request.xhr?
+      render 'partials/_strategy_form', layout: false;
+    end
   end
 
   # POST /template_strategies

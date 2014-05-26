@@ -17,10 +17,16 @@ class MessageConfigsController < ApplicationController
   # GET /message_configs/new
   def new
     @message_config = MessageConfig.new
+    if (request.xhr?)
+      render 'partials/_config_form', layout: false;
+    end
   end
 
   # GET /message_configs/1/edit
   def edit
+    if (request.xhr?)
+      render 'partials/_config_form', layout: false;
+    end
   end
 
   # POST /message_configs

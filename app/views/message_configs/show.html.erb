@@ -27,7 +27,7 @@
         <div class="row box">
             <h2 class="title">
                 模板策略管理
-                <%= link_to '新建', new_message_config_template_strategy_path(@message_config), class: 'btn btn-primary btn-xs pull-right' %>
+                <%= link_to '新建', new_message_config_template_strategy_path(@message_config), class: 'btn btn-primary btn-xs pull-right', data: {toggle: 'modal', target: '#globalModal'}  %>
             </h2>
             <%= render template: 'template_strategies/_table' %>
         </div>
@@ -37,7 +37,7 @@
         <div class="row box">
             <h2 class="title">
                 消息模板管理
-                <%= link_to '新建', new_message_config_message_template_path(@message_config), class: 'btn btn-primary btn-xs pull-right' %>
+                <%= link_to '新建', new_message_config_message_template_path(@message_config), class: 'btn btn-primary btn-xs pull-right', data: {toggle: 'modal', target: '#globalModal'}  %>
             </h2>
             <%= render template: 'message_templates/_table' %>
         </div>

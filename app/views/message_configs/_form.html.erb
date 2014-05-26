@@ -1,4 +1,5 @@
-<%= form_for(@message_config, html:{class: 'form-horizontal'}) do |f| %>
+<% @message_config ||= MessageConfig.new %>
+<%= form_for(@message_config, remote: true, html:{class: 'form-horizontal'}) do |f| %>
   <% if @message_config.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@message_config.errors.count, "error") %> prohibited this message_config from being saved:</h2>
