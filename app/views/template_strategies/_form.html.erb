@@ -1,0 +1,29 @@
+<%= form_for(@template_strategy) do |f| %>
+  <% if @template_strategy.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@template_strategy.errors.count, "error") %> prohibited this template_strategy from being saved:</h2>
+
+      <ul>
+      <% @template_strategy.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :message_config_id %><br>
+    <%= f.text_field :message_config_id %>
+  </div>
+  <div class="field">
+    <%= f.label :type %><br>
+    <%= f.text_field :type %>
+  </div>
+  <div class="field">
+    <%= f.label :script %><br>
+    <%= f.text_field :script %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

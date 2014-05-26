@@ -1,0 +1,74 @@
+class TemplateStrategiesController < ApplicationController
+  before_action :set_template_strategy, only: [:show, :edit, :update, :destroy]
+
+  # GET /template_strategies
+  # GET /template_strategies.json
+  def index
+    @template_strategies = TemplateStrategy.all
+  end
+
+  # GET /template_strategies/1
+  # GET /template_strategies/1.json
+  def show
+  end
+
+  # GET /template_strategies/new
+  def new
+    @template_strategy = TemplateStrategy.new
+  end
+
+  # GET /template_strategies/1/edit
+  def edit
+  end
+
+  # POST /template_strategies
+  # POST /template_strategies.json
+  def create
+    @template_strategy = TemplateStrategy.new(template_strategy_params)
+
+    respond_to do |format|
+      if @template_strategy.save
+        format.html { redirect_to @template_strategy, notice: 'Template strategy was successfully created.' }
+        format.json { render :show, status: :created, location: @template_strategy }
+      else
+        format.html { render :new }
+        format.json { render json: @template_strategy.errors, status: :unprocessable_entity }
+      end
+    end
+  end
+
+  # PATCH/PUT /template_strategies/1
+  # PATCH/PUT /template_strategies/1.json
+  def update
+    respond_to do |format|
+      if @template_strategy.update(template_strategy_params)
+        format.html { redirect_to @template_strategy, notice: 'Template strategy was successfully updated.' }
+        format.json { render :show, status: :ok, location: @template_strategy }
+      else
+        format.html { render :edit }
+        format.json { render json: @template_strategy.errors, status: :unprocessable_entity }
+      end
+    end
+  end
+
+  # DELETE /template_strategies/1
+  # DELETE /template_strategies/1.json
+  def destroy
+    @template_strategy.destroy
+    respond_to do |format|
+      format.html { redirect_to template_strategies_url, notice: 'Template strategy was successfully destroyed.' }
+      format.json { head :no_content }
+    end
+  end
+
+  private
+    # Use callbacks to share common setup or constraints between actions.
+    def set_template_strategy
+      @template_strategy = TemplateStrategy.find(params[:id])
+    end
+
+    # Never trust parameters from the scary internet, only allow the white list through.
+    def template_strategy_params
+      params.require(:template_strategy).permit(:message_config_id, :type, :script)
+    end
+end

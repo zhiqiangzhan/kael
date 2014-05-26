@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Message config:</strong>
+  <%= @template_strategy.message_config %>
+</p>
+
+<p>
+  <strong>Type:</strong>
+  <%= @template_strategy.type %>
+</p>
+
+<p>
+  <strong>Script:</strong>
+  <%= @template_strategy.script %>
+</p>
+
+<%= link_to 'Edit', edit_template_strategy_path(@template_strategy) %> |
+<%= link_to 'Back', template_strategies_path %>
