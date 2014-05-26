@@ -69,6 +69,6 @@ class MessageConfigsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def message_config_params
-      params.require(:message_config).permit(:group, :bizType, :name, :desc)
+      params.require(:message_config).permit(:group, :biz_type, :name, :desc)
     end
 end

@@ -2,7 +2,7 @@ class CreateMessageConfigs < ActiveRecord::Migration
   def change
     create_table :message_configs do |t|
       t.string :group
-      t.string :bizType
+      t.string :biz_type
       t.string :name
       t.string :desc
 

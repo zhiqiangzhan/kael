@@ -11,15 +11,6 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140526052845) do
-
-  create_table "message_configs", force: true do |t|
-    t.string   "group"
-    t.string   "bizType"
-    t.string   "name"
-    t.string   "desc"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
+ActiveRecord::Schema.define(version: 0) do
 
 end

@@ -4,7 +4,7 @@ describe "message_configs/show" do
   before(:each) do
     @message_config = assign(:message_config, stub_model(MessageConfig,
       :group => "Group",
-      :bizType => "Biz Type",
+      :biz_type => "Biz Type",
       :name => "Name",
       :desc => "Desc"
     ))

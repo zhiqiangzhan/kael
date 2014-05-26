@@ -3,7 +3,7 @@
 FactoryGirl.define do
   factory :message_config do
     group "MyString"
-    bizType "MyString"
+    biz_type "MyString"
     name "MyString"
     desc "MyString"
   end

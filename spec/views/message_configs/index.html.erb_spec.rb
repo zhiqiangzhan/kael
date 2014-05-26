@@ -5,13 +5,13 @@ describe "message_configs/index" do
     assign(:message_configs, [
       stub_model(MessageConfig,
         :group => "Group",
-        :bizType => "Biz Type",
+        :biz_type => "Biz Type",
         :name => "Name",
         :desc => "Desc"
       ),
       stub_model(MessageConfig,
         :group => "Group",
-        :bizType => "Biz Type",
+        :biz_type => "Biz Type",
         :name => "Name",
         :desc => "Desc"
       )

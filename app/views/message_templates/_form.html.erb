@@ -1,0 +1,25 @@
+<%= form_for(@message_template) do |f| %>
+  <% if @message_template.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@message_template.errors.count, "error") %> prohibited this message_template from being saved:</h2>
+
+      <ul>
+      <% @message_template.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :message_config_id %><br>
+    <%= f.text_field :message_config_id %>
+  </div>
+  <div class="field">
+    <%= f.label :template %><br>
+    <%= f.text_field :template %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
