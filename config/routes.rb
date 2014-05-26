@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  resources :message_datasources
+
   resources :message_configs do
     resources :message_templates
     resources :template_strategies

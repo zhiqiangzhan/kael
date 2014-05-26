@@ -1,0 +1,29 @@
+<%= form_for(@message_datasource) do |f| %>
+  <% if @message_datasource.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@message_datasource.errors.count, "error") %> prohibited this message_datasource from being saved:</h2>
+
+      <ul>
+      <% @message_datasource.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :name %><br>
+    <%= f.text_field :name %>
+  </div>
+  <div class="field">
+    <%= f.label :adapter %><br>
+    <%= f.text_field :adapter %>
+  </div>
+  <div class="field">
+    <%= f.label :params %><br>
+    <%= f.text_field :params %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
