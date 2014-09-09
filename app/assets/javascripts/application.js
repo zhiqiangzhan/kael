@@ -14,12 +14,16 @@
 //= require jquery_ujs
 // require turbolinks
 //= require bootstrap
+//= require url
 //= require_tree .
 
 jQuery(document).ready(function ($) {
     $(document)
         .on('ajax:success', '[data-remote]', function (event, data, status, xhr) {
-            window.location.reload();
+            var url = new Url(window.location.href);
+            url.query['tab'] = $(this).closest('.tab-pane').attr('id');
+            window.location.href = url;
+            delete url;
         })
         .on('ajax:complete', '[data-remote]', function (event, xhr, status) {
             $(this).closest('.modal').modal('hide');
@@ -27,4 +31,12 @@ jQuery(document).ready(function ($) {
         .on('hidden.bs.modal', '#globalModal', function (e) {
             $(e.target).removeData('bs.modal');
         });
+
+    var url = new Url();
+    var tabId = url.query['tab'];
+    delete url;
+    if (tabId) {
+        $('.nav-tabs a[href=#' + tabId + ']').tab('show');
+    }
+
 });

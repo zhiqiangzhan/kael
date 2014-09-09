@@ -19,7 +19,7 @@
         <td>
             <%= link_to '查看', message_config_template_strategy_path(@message_config, template_strategy), class: 'btn btn-default btn-xs', data: {toggle: 'modal', target: '#globalModal'}  %>
             <%= link_to '编辑', edit_message_config_template_strategy_path(@message_config, template_strategy), class: 'btn btn-default btn-xs', data: {toggle: 'modal', target: '#globalModal'}  %>
-            <%= link_to '删除', message_config_template_strategy_path(@message_config, template_strategy), method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger btn-xs', data: {toggle: 'modal', target: '#globalModal'}  %>
+            <%= link_to '删除', message_config_template_strategy_path(@message_config, template_strategy), method: :delete, class: 'btn btn-danger btn-xs', data: { confirm: 'Are you sure?', remote: true }  %>
         </td>
     </tr>
     <% end %>

@@ -65,6 +65,7 @@ class TemplateStrategiesController < ApplicationController
   # DELETE /template_strategies/1.json
   def destroy
     @template_strategy.destroy
+
     respond_to do |format|
       format.html { redirect_to message_config_template_strategies_url, notice: 'Template strategy was successfully destroyed.' }
       format.json { head :no_content }

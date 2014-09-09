@@ -23,7 +23,7 @@
             <td><%= message_config.desc %></td>
             <td>
                 <%= link_to '编辑', edit_message_config_path(message_config), class: 'btn btn-default btn-xs', data: {toggle: 'modal', target: '#globalModal'}%>
-                <%= link_to '删除', message_config, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger btn-xs' %>
+                <%= link_to '删除', message_config_path(message_config, format: 'json'), method: :delete, data: { confirm: 'Are you sure?', remote: true }, class: 'btn btn-danger btn-xs' %>
                 <%= link_to '创建新模板', new_message_config_message_template_path(message_config), class: 'btn btn-default btn-xs', data: {toggle: 'modal', target: '#globalModal'} %>
                 <%= link_to '创建新策略', new_message_config_template_strategy_path(message_config), class: 'btn btn-default btn-xs', data: {toggle: 'modal', target: '#globalModal'} %>
             </td>
